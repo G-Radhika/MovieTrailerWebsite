@@ -1,6 +1,15 @@
+from __future__ import print_function
+
 import webbrowser
 import os
 import re
+
+#   Changes that were made to the original fresh_tomatoes.py file.
+# Change 1. Original web page displays three movies in a row I want to change it to
+#           FOUR.
+# Change 2. If you hover on the link 'Storyline' the movie_storyline should be visible.
+#           But its font is small... 
+# Change 3. Changed the background, white was boring for a movie!
 
 
 # Styles and scripting for the page
@@ -19,6 +28,8 @@ main_page_head = '''
     <style type="text/css" media="screen">
         body {
             padding-top: 80px;
+            background-image: url("http://useppa.com/wp-content/uploads/2014/01/free-paper-texture-301.jpg");
+            <!-- Change 3. Background Image Change -->
         }
         #trailer .modal-dialog {
             margin-top: 200px;
@@ -36,8 +47,8 @@ main_page_head = '''
             height: 100%;
         }
         .movie-tile {
-            margin-bottom: 20px;
-            padding-top: 20px;
+            margin-bottom: 10px;
+            padding-top: 10px;
         }
         .movie-tile:hover {
             background-color: #EEE;
@@ -56,6 +67,7 @@ main_page_head = '''
             top: 0;
             background-color: white;
         }
+        
     </style>
     <script type="text/javascript" charset="utf-8">
         // Pause the video when the modal is closed
@@ -107,7 +119,7 @@ main_page_content = '''
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+            <a class="navbar-brand" href="#">Harry Potter Movie Trailers</a>
           </div>
         </div>
       </div>
@@ -122,9 +134,12 @@ main_page_content = '''
 
 # A single movie entry html template
 movie_tile_content = '''
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
-    <img src="{poster_image_url}" width="220" height="342">
+<!-- Change 1. Page layout change from 3 columns to 4. -->
+<div class="col-md-3 col-lg-3 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
+    <img src="{poster_image_url}" width="180" height="260">
     <h2>{movie_title}</h2>
+    <!--Change 3. Hover 'Storyline' -->
+    <a href="Storyline" title="{storyline}">Storyline</a>
 </div>
 '''
 
@@ -140,10 +155,16 @@ def create_movie_tiles_content(movies):
             r'(?<=be/)[^&#]+', movie.trailer_youtube_url)
         trailer_youtube_id = (youtube_id_match.group(0) if youtube_id_match
                               else None)
+        
+        #Get the movie_storyline!!!
+        # Capture the storyline variable to display.
+        storyline = movie.storyline
 
+        
         # Append the tile for the movie with its content filled in
         content += movie_tile_content.format(
             movie_title=movie.title,
+            storyline = storyline,
             poster_image_url=movie.poster_image_url,
             trailer_youtube_id=trailer_youtube_id
         )
