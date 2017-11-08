@@ -1,4 +1,20 @@
-# Movie class defination.
+"""
+      Class defination.
+      Class Movies
+
+      Args:
+            movie_title (str):      Title of the movie.
+            movie_stroyline(str):   Gives an abrigde Story line.
+            poster_image (url):     Url for the movie's poster art.
+            trailer_youtube(url):   Movies trailer from YouTube.
+            
+
+      Class Methods:
+            show_trailer is the only class method defined.
+            It takes one argument as input - tailer_youtube and
+            playes the link on the webbrowser.
+
+"""
 
 import webbrowser
 

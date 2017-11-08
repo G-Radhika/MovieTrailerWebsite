@@ -5,10 +5,10 @@ import os
 import re
 
 #   Changes that were made to the original fresh_tomatoes.py file.
-# Change 1. Original web page displays three movies in a row I want to change it to
-#           FOUR.
-# Change 2. If you hover on the link 'Storyline' the movie_storyline should be visible.
-#           But its font is small... 
+# Change 1. Original web page displays three movies in a row I want to change
+#           it to FOUR.
+# Change 2. If you hover on the link 'Storyline' the movie_storyline
+#           should be visible. But its font is small...
 # Change 3. Changed the background, white was boring for a movie!
 
 
@@ -72,8 +72,8 @@ main_page_head = '''
     <script type="text/javascript" charset="utf-8">
         // Pause the video when the modal is closed
         $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
-            // Remove the src so the player itself gets removed, as this is the only
-            // reliable way to ensure the video stops playing in IE
+            // Remove the src so the player itself gets removed, as this is the
+            // only reliable way to ensure the video stops playing in IE
             $("#trailer-video-container").empty();
         });
         // Start playing the video whenever the trailer modal is opened
@@ -135,7 +135,8 @@ main_page_content = '''
 # A single movie entry html template
 movie_tile_content = '''
 <!-- Change 1. Page layout change from 3 columns to 4. -->
-<div class="col-md-3 col-lg-3 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
+<div class="col-md-3 col-lg-3 movie-tile text-center" data-trailer-youtube-id=
+"{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
     <img src="{poster_image_url}" width="180" height="260">
     <h2>{movie_title}</h2>
     <!--Change 3. Hover 'Storyline' -->
@@ -155,16 +156,12 @@ def create_movie_tiles_content(movies):
             r'(?<=be/)[^&#]+', movie.trailer_youtube_url)
         trailer_youtube_id = (youtube_id_match.group(0) if youtube_id_match
                               else None)
-        
-        #Get the movie_storyline!!!
         # Capture the storyline variable to display.
         storyline = movie.storyline
-
-        
         # Append the tile for the movie with its content filled in
         content += movie_tile_content.format(
             movie_title=movie.title,
-            storyline = storyline,
+            storyline=storyline,
             poster_image_url=movie.poster_image_url,
             trailer_youtube_id=trailer_youtube_id
         )
