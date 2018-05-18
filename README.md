@@ -10,8 +10,8 @@
 #     First--> fresh_tomatoes.py
 #     Second--> media.py
 #     Third-->  movieInstances.py
-# Order is important as one file is dependent onn other.
-# If everything goes right a message appears on the Python Shell otherwise corresponding error will be indicated.
+# Order is important as one file is dependent on other.
+# If everything goes right a message appears on the Python Shell otherwise error will be indicated.
 # Only after Running movieInstance.py does the webPage FreshTomatoes open
 # 1. By moving the mouse you can highlite poster image.
 # 2. By moving the mouse on the "StoryLine" link a small
@@ -27,10 +27,8 @@
 
 #   Changes that were made to the original fresh_tomatoes.py file.
 
-# Change 1. Original web page displays three movies in a row I want to change it to
-#           FOUR.
-# Change 2. If you hover on the link 'Storyline' the movie_storyline should be visible.
-#           But its font is small... 
-# Change 3. Changed the background, white was boring for a movie!
+# 1. Original web page displays three movies in a row I want to change it to FOUR.
+# 2. If you hover on the link 'Storyline' the movie_storyline should be visible.
+# 3. Changed the background, white was boring for a movie!
 
 # All these changes are commented in code of fresh_tomatoes.py file.

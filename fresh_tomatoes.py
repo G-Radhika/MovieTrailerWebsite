@@ -5,11 +5,9 @@ import os
 import re
 
 #   Changes that were made to the original fresh_tomatoes.py file.
-# Change 1. Original web page displays three movies in a row I want to change
-#           it to FOUR.
-# Change 2. If you hover on the link 'Storyline' the movie_storyline
-#           should be visible. But its font is small...
-# Change 3. Changed the background, white was boring for a movie!
+# 1. Original web page displays three movies in a row I want to change it to FOUR.
+# 2. If you hover on the link 'Storyline' the movie_storyline is visible.
+# 3. Changed the background, white was boring for a movie!
 
 
 # Styles and scripting for the page
@@ -28,7 +26,7 @@ main_page_head = '''
     <style type="text/css" media="screen">
         body {
             padding-top: 80px;
-            background-image: url("http://useppa.com/wp-content/uploads/2014/01/free-paper-texture-301.jpg");
+            background-image: url("img/hogwarts.jpg");
             <!-- Change 3. Background Image Change -->
         }
         #trailer .modal-dialog {
@@ -67,7 +65,7 @@ main_page_head = '''
             top: 0;
             background-color: white;
         }
-        
+
     </style>
     <script type="text/javascript" charset="utf-8">
         // Pause the video when the modal is closed
